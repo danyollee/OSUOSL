@@ -24,6 +24,7 @@
 #	 .
 #	 etc
 
+#Edited by Daniel Lee
 class WeightedScore
 
   def initialize(scores)
