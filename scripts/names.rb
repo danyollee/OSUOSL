@@ -36,14 +36,13 @@ class WeightedScore
     @scores = scores
   end
 
-  def weighted_score(score)
+  #Added avg_score in parameter to find the real average score
+  def weighted_score(score, avg_score)
     #add if statement if score is 0
     if(score==0)
       return
     end
-    #puts "Average score is "
-    #p average_score + 215/score
-    return average_score + 215/score
+    return (avg_score + 215)/score
   end
 
   def average_score
@@ -55,11 +54,11 @@ class WeightedScore
     @scores.each do |score|
       #Did avg_score+=score to add to array
     	avg_score += score
-      puts "score is #{avg_score}"
     	i = i + 1
     end
-    puts "'i' is #{i}"
-    return avg_score / i
+    avg_score/i
+    #puts "average score is #{avg_score}"
+    return avg_score
   end
 
   def output
@@ -67,8 +66,10 @@ class WeightedScore
     while i < 10
       name = @names[i]
     	line_string = i.to_s
-  		line_string << ". #{name}, #{@emails[i]}, W = #{weighted_score(@scores[i]).to_s}"
-      if @scores[i] > 5
+  		line_string << ". #{name}, #{@emails[i]}, W = #{weighted_score(@scores[i], average_score).to_s}" #Added average_score function to the argument of weighted_score to send it to that function since it was missing
+
+      #Added >=5 so that it would print if the score was exactly 5
+      if @scores[i] >= 5
     	   puts line_string
       end
       #incremented i AFTER prints the statements
