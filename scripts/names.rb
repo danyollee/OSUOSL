@@ -26,7 +26,6 @@
 
 #Edited by Daniel Lee
 class WeightedScore
-
   def initialize(scores)
     @names = ['Amy', 'Annie', 'Fred', 'Marge', 'Tim', 'Sarah', 'John', 'Elise',
 		 'Andy', 'Ellen']
@@ -35,7 +34,6 @@ class WeightedScore
 		  'john@example.com', 'elise@example.com', 'andy@example.com',
 		  'ellen@example.com']
     @scores = scores
-
   end
 
   def weighted_score(score)
@@ -66,13 +64,15 @@ class WeightedScore
   end
 end
 
+
 # START
 
 # these ten scores correspond, in order, with the names of test taker
 scores = [2, 5, -2, 9, 0, 23, -8, 7, 1, 4]
 
 # instantiate the class with the scores
-znumber = WieghtedScore.new(scores)
+#Changed from WieghtedScore to WeightScore. It was mispelled.
+znumber = WeightedScore.new(scores)
 
 # print out the names, emails and weighted scores
 znumber.output
