@@ -37,29 +37,42 @@ class WeightedScore
   end
 
   def weighted_score(score)
+    #add if statement if score is 0
+    if(score==0)
+      return
+    end
+    #puts "Average score is "
+    #p average_score + 215/score
     return average_score + 215/score
   end
 
   def average_score
-    score = 0
-    i = 1
+    #Changed score to avg_score because otherwise it would rewrite the array to '0'
+    avg_score = 0
+    #Changed i to 0 instead of 1 because it's getting incremented from the starting point, which should be 0.
+    i=0
+
     @scores.each do |score|
-    	score += score
+      #Did avg_score+=score to add to array
+    	avg_score += score
+      puts "score is #{avg_score}"
     	i = i + 1
     end
-    return score / i
+    puts "'i' is #{i}"
+    return avg_score / i
   end
 
   def output
     i = 0
     while i < 10
       name = @names[i]
-    	i = i + 1
     	line_string = i.to_s
   		line_string << ". #{name}, #{@emails[i]}, W = #{weighted_score(@scores[i]).to_s}"
       if @scores[i] > 5
     	   puts line_string
       end
+      #incremented i AFTER prints the statements
+      i = i + 1
     end
   end
 end
